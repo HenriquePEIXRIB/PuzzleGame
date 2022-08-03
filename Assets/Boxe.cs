@@ -98,9 +98,18 @@ public class Boxe : MonoBehaviour
                 _currentScore = Mathf.Min(_currentScore + 1, _maxBullets);
             }
         }
-
-        
-
-
     }
+    public bool IsValidated()
+    {
+        if (_currentScore >= _maxBullets)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+
 }
