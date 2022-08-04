@@ -5,6 +5,7 @@ using UnityEngine;
 public class follow_mouse : MonoBehaviour
 {
     [SerializeField] Camera _mainCamera;
+    [SerializeField] Transform _transformToMove;
     Vector2 _oldPosition;
     private void OnMouseEnter()
     {
@@ -17,7 +18,9 @@ public class follow_mouse : MonoBehaviour
 
         Vector2 CurrentMousePosition = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
         Debug.Log($"MousePosition {Input.mousePosition} World {CurrentMousePosition}");
-        transform.Translate(CurrentMousePosition - _oldPosition, Space.World);
+
+
+        _transformToMove.Translate(CurrentMousePosition - _oldPosition, Space.World);
         _oldPosition = CurrentMousePosition;
 
         //transform.position = (CurrentMousePosition - _oldPosition);
@@ -29,6 +32,7 @@ public class follow_mouse : MonoBehaviour
     private void OnMouseDown()
     {
         Debug.Log("clic");
+       
     }
 
     private void OnMouseUp()
